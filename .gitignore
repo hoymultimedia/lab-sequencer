@@ -1,0 +1,11 @@
+# Production
+/dist
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+node_modules/
+dist/
+
