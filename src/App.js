@@ -23,7 +23,7 @@ import RadioButtons from "./RadioButtons";
 import GridPos from "./GridPos";
 import Button from "./Button";
 
-import crossCircleImg from "./assets/images/cross-circle_2.png";
+import crossCircleImg from "./assets/images/cross-circle.png";
 import copyLinkImg from "./assets/images/copy-link.png";
 import gsap from "gsap";
 
@@ -47,7 +47,6 @@ export default class App {
 
     this.update();
     this.onResize();
-    console.log(this.renderer.info.render.triangles);
   }
 
   setupApp() {
@@ -261,9 +260,9 @@ export default class App {
       }
     }
 
+    const baseUrl = location.toString().replace(location.search, "");
     const qs = new URLSearchParams(urlParams);
-    const shareUrl = window.location.href + "?" + qs.toString();
-    console.log(shareUrl);
+    const shareUrl = baseUrl + "?" + qs.toString();
 
     const shareUrlElement = window.document.getElementById("shareUrl");
     shareUrlElement.textContent = "Url copied! " + shareUrl.substring(0, 44) + "...";
@@ -271,7 +270,6 @@ export default class App {
     gsap.to(shareUrlElement, { color: "#798c7a", opacity: 0, bottom: 0, duration: 0.3, delay: 1 });
 
     navigator.clipboard.writeText(shareUrl);
-    console.log(shareUrlElement);
     return shareUrl;
   }
 
@@ -282,14 +280,16 @@ export default class App {
     const effect = new URLSearchParams(url.search).get("effect");
     const oscillator = new URLSearchParams(url.search).get("oscillator");
     for (let i = 0; i < notes.length; i++) {
-      if (notes[i] === "") return;
-      const x_y = notes[i].split("_");
-      const gridPos = new GridPos(x_y[0], x_y[1]);
-      this.grid.getBlock(gridPos).setEnabled(true);
+      if (notes[i] !== "") {
+        const x_y = notes[i].split("_");
+        const gridPos = new GridPos(x_y[0], x_y[1]);
+        this.grid.getBlock(gridPos).setEnabled(true);
+      }
     }
-    this.synthSelector.selectButton(synth);
-    this.effectSelector.selectButton(effect);
-    this.oscillatorSelector.selectButton(oscillator);
+    console.log("oscillator: ", oscillator);
+    this.synthSelector.selectButton(synth, true);
+    this.effectSelector.selectButton(effect, true);
+    this.oscillatorSelector.selectButton(oscillator, true);
   }
 
   update() {

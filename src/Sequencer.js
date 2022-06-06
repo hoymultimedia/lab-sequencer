@@ -19,9 +19,6 @@ import GridPos from "./GridPos";
 import MathUtils from "./utils/MathUtils";
 
 const ON_BEAT = "onBeat";
-// https://codepen.io/COLTONTEEFY/pen/JqRmML
-// https://gist.github.com/Pandan/c7c97f5644018b93f11c9b9939866019
-// https://github.com/MaxLaumeister/ToneMatrixRedux
 export default class Sequencer extends EventDispatcher {
   static get ON_BEAT() {
     return ON_BEAT;
@@ -30,7 +27,7 @@ export default class Sequencer extends EventDispatcher {
   constructor(beatLength, numberOfNotes) {
     super();
     this.grid = new Array(beatLength).fill(null).map(() => new Array(numberOfNotes).fill(null));
-    this.beat = 0;
+    this.beat = -1;
     this.beatLength = beatLength;
     this.numberOfNotes = numberOfNotes;
 

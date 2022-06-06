@@ -60,14 +60,15 @@ export default class RadioButtons extends EventDispatcher {
     }
   }
 
-  selectButton(id) {
-    if (this.animating) return;
+  selectButton(id, instant = false) {
+    if (this.animating && !instant) return;
 
     this.animating = true;
     for (let i = 0; i < this.buttons.length; i++) {
       const btn = this.buttons[i];
       gsap.to(btn.scale, { y: this.size, duration: 0.1, ease: "power1.out" });
       btn.material.color.setHex(this.color);
+
       if (btn.userData.id === id) {
         gsap.to(btn.scale, {
           y: 0.5,
