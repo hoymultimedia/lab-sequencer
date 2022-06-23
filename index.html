@@ -7,11 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
     <title>Sequencer</title>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KN2QB5C');
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
     <div id="app">
       <span id="shareUrl" class="shareUrl" ></span>
     </div>
+
+    <div class="wrapper-logo">
+      <a class="wrapper-link" href="https://lab.hoy.se">
+        <img src="./src/assets/images/arrow-left.svg" alt="go to grid" />
+        <span class="title">Hoy Labs</span>
+        <img class="logo" src="./src/assets/images/logo-symbols.svg" alt="logo" />
+      </a>
+    </div>
+
+    <h1 class="page-title">Sequencer</h1>
+    <span class="page-sub">
+      Sequencer inspired by <a href="https://twitter.com/andremichelle">André Michelle's</a> Tone Matrix.
+      Rendering is done with <a href="https://threejs.org/">Three.js</a> and
+      sound with <a href="https://tonejs.github.io/">Tone.js</a>
+
+    </span>
+
+    <div class="wrapper-made-with">
+      Coded by
+      <a class="link" href="https://www.hoy.se">Hoy.se</a>
+    </div>
+
+    <div class="wrapper-links">
+      <a class="link" href="https://github.com/hoymultimedia/">Github</a>
+    </div>
+
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>

@@ -3,14 +3,9 @@ import {
   EventDispatcher,
   Group,
   Mesh,
-  MeshBasicMaterial,
   MeshLambertMaterial,
-  MeshPhongMaterial,
   PlaneBufferGeometry,
-  PlaneGeometry,
   SphereBufferGeometry,
-  SphereGeometry,
-  TextureLoader,
   Vector3
 } from "three";
 // import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
@@ -96,18 +91,15 @@ export default class Block extends EventDispatcher {
       color: appStore.selectedBlockColor
     });
 
-    // const selectedGeometry = new RoundedBoxGeometry(size - 0.2, size - 0.2, size - 0.2, 2, 0.6);
     const selectedGeometry = new SphereBufferGeometry(size / 2, 32, 16);
     this.selectedMesh = new Mesh(selectedGeometry, this.selectedMaterial);
     this.selectedMesh.position.set(0, 0, 0);
-    // this.selectedMesh.castShadow = true;
-    // this.selectedMesh.visible = false;
   }
 
   set waveAmp(value) {
     this.waveNorm = MathUtils.norm(value, 60, -70);
     const waveLerp = MathUtils.lerp(this.waveNorm, -3, 3);
-    this.waveYOffset = MathUtils.clamp(waveLerp, -3, 3);
+    this.waveYOffset = MathUtils.clamp(waveLerp, -3, 1.5);
     // this.waveYOffset = MathUtils.map(value, -70, 60, -3, 3, true);
   }
 
@@ -141,7 +133,7 @@ export default class Block extends EventDispatcher {
     this.dispatchEvent({ type: ENABLED });
   }
 
-  render(deltaTime) {
+  render() {
     this.counter += 0.05;
     this.group.position.y = this.position.y;
     this.defaultMesh.position.y = this.waveYOffset;

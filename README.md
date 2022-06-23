@@ -1,8 +1,10 @@
 # LAB Sequencer
 
 Sequencer created using Tone.js and Three.js
-Inspired by Andre Michelle old flash implementation of tone matrix.
+Inspired by Andre Michelle's old flash implementation of tone matrix.
 https://twitter.com/andremichelle
+
+[Demo](https://lab.hoy.se/labs/sequencer/)
 
 #### Run
 

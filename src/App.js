@@ -188,7 +188,7 @@ export default class App {
     this.oscillatorSelector.addEventListener(RadioButtons.SELECT, (value) => {
       this.sequencer.selectOscillatorType(value.id);
     });
-    this.oscillatorSelector.group.position.set(18, yPos, zPos);
+    this.oscillatorSelector.group.position.set(14, yPos, zPos);
     this.oscillatorSelector.selectButton(this.sequencer.oscillatorIds[this.sequencer.currentOscillatorIndex]);
     this.scene.add(this.oscillatorSelector.group);
 
@@ -196,7 +196,7 @@ export default class App {
     this.effectSelector.addEventListener(RadioButtons.SELECT, (value) => {
       this.sequencer.selectEffect(value.id);
     });
-    this.effectSelector.group.position.set(11, yPos, zPos);
+    this.effectSelector.group.position.set(2.5, yPos, zPos);
     this.effectSelector.selectButton(this.sequencer.effectIds[this.sequencer.currentEffectIndex]);
     this.scene.add(this.effectSelector.group);
 
@@ -218,7 +218,7 @@ export default class App {
   start() {
     this.createGrid();
     this.setupSequencer();
-    this.setupDevGUI();
+    // this.setupDevGUI();
     this.setupGUI();
     if (window.location.search !== "") {
       this.loadQuery();

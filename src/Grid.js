@@ -1,5 +1,4 @@
-import { BoxBufferGeometry, BoxGeometry, MeshBasicMaterial, TextureLoader, Vector3 } from "three";
-// import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
+import { BoxBufferGeometry, MeshBasicMaterial, TextureLoader, Vector3 } from "three";
 import Block from "./Block";
 import GridPos from "./GridPos";
 import WaveAnimation from "./WaveAnimation";

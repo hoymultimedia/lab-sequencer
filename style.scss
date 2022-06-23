@@ -1,0 +1,344 @@
+
+$bg-color: #d9d9d9;
+$primary-color: #798c7a;
+$animation-delay: 0.4;
+
+/* Color Theme Swatches in Hex
+{ color: #798C7A; }
+{ color: #A8BFAA; }
+{ color: #F2F2F2; }
+{ color: #404040; }
+{ color: #0D0D0D; }
+ */
+
+
+
+
+@font-face {
+  font-family: 'Circular Std';
+  src: url('src/assets/fonts/CircularStd-Bold.woff2') format('woff2');
+
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular Std';
+  src: url('src/assets/fonts/CircularStd-Black.woff2') format('woff2');
+
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular Std Book';
+  src: url('src/assets/fonts/CircularStd-Book.woff2') format('woff2');
+
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  background-color: $bg-color;
+
+  color: $primary-color;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Circular Std', sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .link {
+    width: 20px;
+
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100vh;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper-logo {
+  position: absolute;
+  display: flex;
+  top: 40px;
+  left: 40px;
+  color: $primary-color;
+  text-decoration: none;
+
+  animation: fadeFromLeft 0.8s ease 1s both;
+  animation-delay: $animation-delay;
+  animation-timing-function: ease-out;
+
+  @media screen and (max-width: 768px) {
+    animation: fadeFromLeftMobile 0.8s ease 1s both;
+    left: 20px;
+    top: 20px;
+  }
+
+  .wrapper-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    margin-right: 6px;
+    > img {
+      width: 22px;
+      margin-top: 4px;
+      margin-right: 10px;
+    }
+
+    > span {
+      margin-top: 2px;
+    }
+
+    .logo {
+      display: block;
+
+      width: 65px;
+      margin-left: 14px;
+    }
+  }
+
+  .title {
+    color: $primary-color;
+  }
+}
+
+.wrapper-made-with {
+  position: absolute;
+  bottom: 40px;
+  overflow-x: hidden;
+
+  animation: fadeFromRight 0.8s ease 1s both;
+  animation-delay: $animation-delay;
+  animation-timing-function: ease-out;
+
+  @media screen and (max-width: 768px) {
+    animation: fadeFromRightMobile 0.8s ease 1s both;
+    bottom: 20px;
+  }
+}
+
+.wrapper-links {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  overflow-x: hidden;
+
+  background-color: transparent;
+  animation: fadeFromLeft 0.8s ease 1s both;
+  animation-delay: $animation-delay;
+  animation-timing-function: ease-out;
+
+  @media screen and (max-width: 768px) {
+    animation: fadeFromLeftMobile 0.8s ease 1s both;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+.page-title {
+  position: absolute;
+  font-size: 60px;
+  top: 50px;
+  left: 40px;
+
+  pointer-events: none;
+
+  animation: fadeInDownUp 0.8s ease 1.8s both;
+  animation-timing-function: ease-out;
+
+  @media screen and (max-width: 768px) {
+    top: 45px;
+    left: 20px;
+    font-size: 35px;
+
+    animation: fadeInDownUpMobile 0.8s ease 1.8s both;
+  }
+}
+
+.page-sub {
+  position: absolute;
+  font-size: 60px;
+  top: 170px;
+  left: 42px;
+
+  font-weight: 500;
+  font-size: 16px;
+
+  width: 300px;
+  line-height: 22px;
+  // pointer-events: none;
+
+  animation: fadeIn 0.8s ease 1.8s both;
+  animation-timing-function: ease-out;
+
+  > a {
+    color: $primary-color;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 110px;
+    left: 20px;
+    font-size: 16px;
+
+    width: 320px;
+    line-height: 22px;
+
+    animation: fadeInMobile 0.8s ease 1.8s both;
+  }
+}
+
+@keyframes fadeFromLeft {
+  from {
+    left: -100px;
+
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    left: 40px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeFromLeftMobile {
+  from {
+    left: -100px;
+
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    left: 20px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeFromRight {
+  from {
+    right: -100px;
+
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    right: 40px;
+
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeFromRightMobile {
+  from {
+    right: -100px;
+
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    right: 20px;
+
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDownUp {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    top: 65px;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+  }
+}
+
+@keyframes fadeInDownUpMobile {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    top: 45px;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    top: 35px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInMobile {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.shareUrl {
+  position: absolute;
+  white-space: nowrap;
+  z-index: 10;
+  bottom: 0;
+
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Circular Std', sans-serif;
+
+  opacity: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $primary-color
+}
